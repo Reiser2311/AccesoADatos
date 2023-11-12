@@ -43,6 +43,7 @@ public class Main {
     }
 
     public static void buscarJugador (ArrayList<Jugador> jugadores) {
+        boolean encontrado = false;
         Scanner sc = new Scanner(System.in);
         System.out.print("Introduzca los datos del jugador que desea buscar\nNombre: ");
         String nombre = sc.nextLine();
@@ -54,9 +55,12 @@ public class Main {
         for (Jugador j : jugadores) {
             if (j.getNombre().equalsIgnoreCase(nombre) && j.getApodo().equalsIgnoreCase(apodo) && j.getDorsal().equalsIgnoreCase(dorsal)){
                 System.out.println(j);
-            } else {
-                System.out.println("Jugador no encontrado");
+                encontrado = true;
             }
+        }
+
+        if (!encontrado) {
+            System.out.println("Jugador no encontrado");
         }
     }
 
@@ -106,6 +110,12 @@ public class Main {
                 writer.write(j.toString());
                 writer.newLine();
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("jugaodores.obj"))) {
+            out.writeObject(jugadores);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

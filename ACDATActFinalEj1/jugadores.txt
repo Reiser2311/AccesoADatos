@@ -1,0 +1,14 @@
+Jugador{
+Nombre: Jose
+Apodo: Pepe
+Puesto: Delantero
+Dorsal: 12
+Descripcion: Es jose
+}
+Jugador{
+Nombre: Andrea
+Apodo: Lux
+Puesto: Defensa
+Dorsal: 32
+Descripcion: Es andrea
+}
