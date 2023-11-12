@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jugadores>
+    <jugadores>
+        <apodo>Pepe</apodo>
+        <descripcion>Es jose</descripcion>
+        <dorsal>12</dorsal>
+        <nombre>Jose</nombre>
+        <puesto>Delantero</puesto>
+    </jugadores>
+    <jugadores>
+        <apodo>Lux</apodo>
+        <descripcion>Es andrea</descripcion>
+        <dorsal>32</dorsal>
+        <nombre>Andrea</nombre>
+        <puesto>Defensa</puesto>
+    </jugadores>
+</jugadores>
