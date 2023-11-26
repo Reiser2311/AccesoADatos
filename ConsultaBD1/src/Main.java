@@ -7,15 +7,27 @@ public class Main {
         Class.forName("org.postgresql.Driver");
         String url = "jdbc:postgresql://localhost:5432/InstitutoFP";
         String user = "postgres";
-        String password = "2311";
+        String password = "iesbelen";
+        String SQLsentence;
+
         Connection con = DriverManager.getConnection(url, user, password);
         Statement statement = con.createStatement();
-        String SQLsentence = "SELECT * FROM asignaturas ORDER BY codigo";
+
+        SQLsentence = "INSERT INTO public.asignatura(nombre, anyo) VALUES ('LENGUAJE DE MARCAS', 1)";
+        statement.executeUpdate(SQLsentence);
+
+        SQLsentence = "ALTER TABLE asignatura ADD COLUMN horas INTEGER";
+        statement.executeUpdate(SQLsentence);
+
+        SQLsentence = "SELECT * FROM asignatura ORDER BY codigo";
         ResultSet rs = statement.executeQuery(SQLsentence);
-        System.out.println("Codigo" + "\t" + "Nombre:");
+        System.out.println("Codigo\tNombre\tAño");
         System.out.println("----------------------------------------------------");
         while (rs.next()) {
-            System.out.println(rs.getString(1) + "\t" + rs.getString(2));
+            for (int i = 0; i < 4; i++) {
+                System.out.print(rs.getString(i + 1) + "\t");
+            }
+            System.out.println();
         }
         rs.close();
         con.close();
